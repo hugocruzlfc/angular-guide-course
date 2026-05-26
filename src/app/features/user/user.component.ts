@@ -1,4 +1,4 @@
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, input, Input, signal } from '@angular/core';
 import { USERS } from '@/app/shared/constants';
 
 const randomUserIndex = Math.floor(Math.random() * USERS.length);
@@ -10,7 +10,11 @@ const randomUserIndex = Math.floor(Math.random() * USERS.length);
 })
 export class UserComponent {
   @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) name!: string;
+  // @Input({ required: true }) name!: string;
+
+  // Initialize props via Signals
+  // avatar = input<string>()
+  name = input.required<string>();
 
   // selectedUser = USERS[randomUserIndex];
   // selectedUser = signal(USERS[randomUserIndex]);

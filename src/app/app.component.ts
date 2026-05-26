@@ -11,4 +11,8 @@ import { USERS } from './shared/constants';
 })
 export class AppComponent {
   users = USERS;
+
+  onSelectUser(userId: string) {
+    console.log('Selected user ID:', userId);
+  }
 }

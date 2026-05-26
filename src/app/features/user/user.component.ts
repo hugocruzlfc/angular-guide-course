@@ -1,4 +1,13 @@
-import { Component, computed, input, Input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  EventEmitter,
+  input,
+  Input,
+  output,
+  Output,
+  signal,
+} from '@angular/core';
 import { USERS } from '@/app/shared/constants';
 
 const randomUserIndex = Math.floor(Math.random() * USERS.length);
@@ -10,7 +19,12 @@ const randomUserIndex = Math.floor(Math.random() * USERS.length);
 })
 export class UserComponent {
   @Input({ required: true }) avatar!: string;
+  @Input({ required: true }) userId!: string;
   // @Input({ required: true }) name!: string;
+  @Output() selectUser = new EventEmitter();
+
+  // otra manera de emititir eventos
+  //selectUser = output<string>();
 
   // Initialize props via Signals
   // avatar = input<string>()
@@ -26,8 +40,12 @@ export class UserComponent {
   }
 
   onSelectedUser() {
-    const randomUserIndex = Math.floor(Math.random() * USERS.length);
+    //const randomUserIndex = Math.floor(Math.random() * USERS.length);
     // this.selectedUser = USERS[randomUserIndex];
     // this.selectedUser.set(USERS[randomUserIndex]);
+    this.selectUser.emit(this.userId);
+
+    // otra manera de emititir eventos
+    // this.selectUser.emit(this.userId);
   }
 }

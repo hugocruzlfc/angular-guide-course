@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Task } from '@/app/shared/types';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-task',
@@ -6,4 +7,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [],
   templateUrl: './task.component.html',
 })
-export class TaskComponent {}
+export class TaskComponent {
+  @Input({ required: true }) task!: Task;
+}

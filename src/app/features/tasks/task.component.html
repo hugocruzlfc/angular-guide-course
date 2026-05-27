@@ -1,9 +1,9 @@
 <article class="bg-[#bf9ee5] p-4 text-[#25113d]">
-  <h2 class="m-0">Tasks</h2>
+  <h2 class="m-0 font-semibold">{{ task.title }}</h2>
 
-  <time class="text-[#3c2c50]">Time</time>
+  <time class="text-[#3c2c50]">{{ task.dueDate }}</time>
 
-  <p>Summary</p>
+  <p>{{ task.summary }}</p>
 
   <p class="m-0 text-right">
     <button

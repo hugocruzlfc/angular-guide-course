@@ -1,6 +1,7 @@
-import { User } from '@/app/shared/types';
+import { Task, User } from '@/app/shared/types';
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task.component';
+import { TASKS } from '@/app/shared/constants';
 
 @Component({
   selector: 'app-tasks',
@@ -10,4 +11,9 @@ import { TaskComponent } from './task.component';
 })
 export class TasksComponent {
   @Input({ required: true }) user?: User;
+  tasks: Task[] = TASKS;
+
+  get userTasks(): Task[] {
+    return this.tasks.filter((task) => task.userId === this.user?.id);
+  }
 }

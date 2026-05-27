@@ -1,3 +1,4 @@
+import { User } from '@/app/shared/types';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -7,5 +8,5 @@ import { Component, Input } from '@angular/core';
   templateUrl: './task.html',
 })
 export class TaskComponent {
-  @Input({ required: true }) userName: string | null = null;
+  @Input({ required: true }) user?: User;
 }

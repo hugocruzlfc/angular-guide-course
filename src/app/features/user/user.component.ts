@@ -9,6 +9,7 @@ import {
   signal,
 } from '@angular/core';
 import { USERS } from '@/app/shared/constants';
+import { User } from '@/app/shared/types';
 
 const randomUserIndex = Math.floor(Math.random() * USERS.length);
 
@@ -18,8 +19,8 @@ const randomUserIndex = Math.floor(Math.random() * USERS.length);
   templateUrl: './user.html',
 })
 export class UserComponent {
-  @Input({ required: true }) avatar!: string;
-  @Input({ required: true }) userId!: string;
+  @Input({ required: true }) user!: User;
+  // @Input({ required: true }) userId!: string;
   // @Input({ required: true }) name!: string;
   @Output() selectUser = new EventEmitter();
 
@@ -28,7 +29,7 @@ export class UserComponent {
 
   // Initialize props via Signals
   // avatar = input<string>()
-  name = input.required<string>();
+  // name = input.required<string>();
 
   // selectedUser = USERS[randomUserIndex];
   // selectedUser = signal(USERS[randomUserIndex]);
@@ -36,14 +37,14 @@ export class UserComponent {
 
   get imagePath(): string {
     // return `assets/users/${this.selectedUser.avatar}`;
-    return `assets/users/${this.avatar}`;
+    return `assets/users/${this.user.avatar}`;
   }
 
   onSelectedUser() {
     //const randomUserIndex = Math.floor(Math.random() * USERS.length);
     // this.selectedUser = USERS[randomUserIndex];
     // this.selectedUser.set(USERS[randomUserIndex]);
-    this.selectUser.emit(this.userId);
+    this.selectUser.emit(this.user.id);
 
     // otra manera de emititir eventos
     // this.selectUser.emit(this.userId);

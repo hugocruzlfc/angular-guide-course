@@ -1,3 +1,5 @@
+import { User } from './types';
+
 export const USERS = [
   {
     id: 'u1',
@@ -29,4 +31,4 @@ export const USERS = [
     name: 'Arjun Singh',
     avatar: 'user-6.jpg',
   },
-];
+] satisfies User[];

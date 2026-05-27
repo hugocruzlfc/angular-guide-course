@@ -4,23 +4,29 @@
 >
   <!-- USERS -->
   <ul id="users" class="list-none m-0 p-0 flex gap-2 overflow-auto md:flex-col">
-    <li>
-      <app-user
+    @for (user of users; track user.id) {
+      <li>
+        <app-user [user]="user" (selectUser)="onSelectUser($event)" />
+        <!-- <app-user
         [avatar]="users[0].avatar"
         [name]="users[0].name"
         [userId]="users[0].id"
         (selectUser)="onSelectUser($event)"
-      />
-    </li>
+      /> -->
+      </li>
+    }
   </ul>
 
-  <app-task [userName]="selectedUserName" />
-
-  <!-- Fallback -->
-  <div
-    id="fallback"
-    class="font-bold text-[1.15rem] text-center m-0 md:text-[1.5rem] md:text-left"
-  >
-    No users selected
-  </div>
+  @if (selectedUser) {
+    <!-- TASKS -->
+    <app-task [user]="selectedUser" />
+  } @else {
+    <!-- Fallback -->
+    <div
+      id="fallback"
+      class="font-bold text-[1.15rem] text-center m-0 md:text-[1.5rem] md:text-left"
+    >
+      No users selected
+    </div>
+  }
 </main>

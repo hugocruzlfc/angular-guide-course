@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { HeaderComponent } from '@/app/features/header/header.component';
 import { UserComponent } from './features/user/user.component';
 import { USERS } from './shared/constants';
-import { TaskComponent } from './features/task.component/task.component';
+import { TasksComponent } from './features/tasks/tasks.component';
 import { User } from './shared/types';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, UserComponent, TaskComponent],
+  imports: [HeaderComponent, UserComponent, TasksComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {

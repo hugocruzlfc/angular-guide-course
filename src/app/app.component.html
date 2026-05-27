@@ -19,14 +19,31 @@
 
   @if (selectedUser) {
     <!-- TASKS -->
-    <app-task [user]="selectedUser" />
+    <app-tasks [user]="selectedUser" />
   } @else {
     <!-- Fallback -->
     <div
       id="fallback"
       class="font-bold text-[1.15rem] text-center m-0 md:text-[1.5rem] md:text-left"
     >
-      No users selected
+      Select a user to see their tasks!
     </div>
   }
 </main>
+
+<!-- Latest versions: -->
+
+<!-- <li *ngFor="let user of users">
+  <app-user [user]="user" (selectUser)="onSelectUser($event)" />
+</li>
+
+<app-task [user]="selectedUser" *ngIf="selectedUser; else fallback" />
+
+<ng-template #fallback>
+  <div
+    id="fallback"
+    class="font-bold text-[1.15rem] text-center m-0 md:text-[1.5rem] md:text-left"
+  >
+    No users selected
+  </div>
+</ng-template> -->

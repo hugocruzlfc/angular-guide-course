@@ -1,12 +1,13 @@
 import { User } from '@/app/shared/types';
 import { Component, Input } from '@angular/core';
+import { TaskComponent } from './task.component';
 
 @Component({
-  selector: 'app-task',
+  selector: 'app-tasks',
   standalone: true,
-  imports: [],
-  templateUrl: './task.html',
+  imports: [TaskComponent],
+  templateUrl: './tasks.component.html',
 })
-export class TaskComponent {
+export class TasksComponent {
   @Input({ required: true }) user?: User;
 }

@@ -9,7 +9,7 @@ import {
   signal,
 } from '@angular/core';
 import { USERS } from '@/app/shared/constants';
-import { User } from '@/app/shared/types';
+import { User } from './user.model';
 
 const randomUserIndex = Math.floor(Math.random() * USERS.length);
 

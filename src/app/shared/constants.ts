@@ -1,5 +1,3 @@
-import { Task, User } from './types';
-
 export const USERS = [
   {
     id: 'u1',
@@ -31,7 +29,7 @@ export const USERS = [
     name: 'Arjun Singh',
     avatar: 'user-6.jpg',
   },
-] satisfies User[];
+];
 
 export const TASKS = [
   {
@@ -57,4 +55,4 @@ export const TASKS = [
       'Prepare and describe an issue template which will help with project management',
     dueDate: '2024-06-15',
   },
-] satisfies Task[];
+];

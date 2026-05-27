@@ -1,5 +1,5 @@
-import { Task } from '@/app/shared/types';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Task } from './task.model';
 
 @Component({
   selector: 'app-task',

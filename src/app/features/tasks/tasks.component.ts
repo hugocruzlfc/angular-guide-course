@@ -1,7 +1,8 @@
-import { Task, User } from '@/app/shared/types';
 import { Component, Input } from '@angular/core';
 import { TaskComponent } from './task.component';
 import { TASKS } from '@/app/shared/constants';
+import { Task } from './task.model';
+import { User } from '../user/user.model';
 
 @Component({
   selector: 'app-tasks',

@@ -4,10 +4,12 @@ import { TasksComponent } from './tasks.component';
 import { TasksService } from './tasks.service';
 import { TaskComponent } from './task/task.component';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { SharedModule } from '@/app/shared/shared.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [TasksComponent],
-  imports: [CommonModule, TaskComponent, NewTaskComponent],
+  declarations: [TasksComponent, TaskComponent, NewTaskComponent],
+  imports: [CommonModule, SharedModule, ReactiveFormsModule],
   exports: [TasksComponent],
   providers: [TasksService],
 })

@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { User } from './user.model';
 import { cn } from '@/app/core/utils';
-import { CardComponent } from '@/app/shared/ui/card/card.component';
+import { SharedModule } from '@/app/shared/shared.module';
 
 @Component({
   selector: 'app-user',
   standalone: true,
   templateUrl: './user.html',
-  imports: [CardComponent],
+  imports: [SharedModule],
 })
 export class UserComponent {
   @Input({ required: true }) user!: User;

@@ -5,8 +5,6 @@ import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-new-task',
-  standalone: true,
-  imports: [ReactiveFormsModule],
   templateUrl: './new-task.component.html',
 })
 export class NewTaskComponent {

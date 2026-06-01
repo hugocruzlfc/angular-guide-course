@@ -4,7 +4,6 @@ import { AppComponent } from './app.component';
 import { UserComponent } from './features/user/user.component';
 import { HeaderModule } from './features/header/header.module';
 import { TasksModule } from './features/tasks/tasks.module';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent], // no standalone components should be declared here

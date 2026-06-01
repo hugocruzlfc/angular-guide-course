@@ -1,8 +1,5 @@
-<div class="rounded-md shadow-[0_1px_6px_rgba(0,0,0,0.1)] overflow-hidden">
-  <button
-    class="flex items-center gap-2 px-2 py-[0.35rem] bg-[#433352] text-[#c3b3d1] border-0 font-inherit cursor-pointer w-full min-w-40 text-left hover:bg-[#9965dd] hover:text-[#150722] active:bg-[#9965dd] active:text-[#150722]"
-    (click)="onSelectedUser()"
-  >
+<app-card>
+  <button [class]="buttonClasses" (click)="onSelectedUser()">
     <img
       class="w-8 object-contain rounded-full shadow-[0_1px_8px_rgba(0,0,0,0.3)]"
       [src]="imagePath"
@@ -13,4 +10,4 @@
     <!-- <span class="text-xs font-normal m-0 p-0">{{ selectedUser.name }}</span> -->
     <span class="text-xs font-normal m-0 p-0">{{ user.name }}</span>
   </button>
-</div>
+</app-card>

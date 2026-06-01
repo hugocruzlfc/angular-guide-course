@@ -3,9 +3,7 @@ import { Task } from './task.model';
 import { NewTaskData } from './new-task/new-task.schema';
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Injectable()
 export class TasksService {
   private tasks: Task[] = TASKS;
 

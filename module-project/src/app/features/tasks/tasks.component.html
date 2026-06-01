@@ -1,0 +1,29 @@
+@if (isAddingTask) {
+  <app-new-task [userId]="user.id" (cancelAddTask)="onCancelAddTask()" />
+  <!-- (addTask)="onAddTask($event)" -->
+}
+
+<section class="max-h-[60vh] overflow-auto rounded-lg bg-[#3a2c54] p-4">
+  <header class="mb-8 flex items-start justify-between gap-4">
+    <h2 class="m-0 w-[60%] text-[0.9rem] text-balance md:text-[1.25rem]">
+      {{ user.name }}'s Tasks
+    </h2>
+    <menu class="m-0 p-0 md:w-auto">
+      <button
+        class="cursor-pointer rounded bg-[#9965dd] px-3 py-1.5 text-[0.9rem] hover:bg-[#a565dd] active:bg-[#a565dd]"
+        (click)="onStartAddTask()"
+      >
+        Add Task
+      </button>
+    </menu>
+  </header>
+
+  <ul class="my-4 flex max-h-[50vh] flex-col gap-4 overflow-auto p-0">
+    @for (task of userTasks; track task.id) {
+      <li>
+        <app-task [task]="task" />
+        <!-- (completeTask)="onCompleteTask($event)" -->
+      </li>
+    }
+  </ul>
+</section>

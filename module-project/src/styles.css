@@ -1,17 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
-* {
-  box-sizing: border-box;
-}
+@import "tailwindcss";
 
-html {
-  height: 100%;
-}
+@layer base {
+  * {
+    @apply box-border;
+  }
 
-body {
-  font-family: "Poppins", sans-serif;
-  background: radial-gradient(circle at top left, #181023, #0b0519);
-  color: #c3b3d8;
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  html {
+    height: 100%;
+  }
+
+  body {
+    @apply m-0 p-0 h-full font-sans text-[#c3b3d8];
+
+    font-family: "Poppins", sans-serif;
+    background: radial-gradient(circle at top left, #181023, #0b0519);
+  }
 }

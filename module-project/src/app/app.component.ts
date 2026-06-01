@@ -1,26 +1,23 @@
 import { Component } from '@angular/core';
-
-import { HeaderComponent } from './header/header.component';
-import { UserComponent } from './user/user.component';
-import { DUMMY_USERS } from './dummy-users';
-import { TasksComponent } from "./tasks/tasks.component";
+import { HeaderComponent } from '@/app/features/header/header.component';
+import { UserComponent } from './features/user/user.component';
+import { USERS } from './shared/constants';
+import { TasksComponent } from './features/tasks/tasks.component';
+import { User } from './features/user/user.model';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    imports: [HeaderComponent, UserComponent, TasksComponent]
+  selector: 'app-root',
+  standalone: true,
+  imports: [HeaderComponent, UserComponent, TasksComponent],
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
-  users = DUMMY_USERS;
-  selectedUserId?: string;
+  users: User[] = USERS;
+  selectedUser?: User;
 
-  get selectedUser() {
-    return this.users.find((user) => user.id === this.selectedUserId);
-  }
-
-  onSelectUser(id: string) {
-    this.selectedUserId = id;
+  onSelectUser(userId: string) {
+    // Find the user by ID and set their name as the selected user name
+    const selectedUser = this.users.find((user) => user.id === userId);
+    this.selectedUser = selectedUser;
   }
 }

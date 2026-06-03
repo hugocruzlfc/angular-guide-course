@@ -1,9 +1,9 @@
-export function calculateInvestmentResults(data: {
-  initialInvestment: number;
-  annualInvestment: number;
-  expectedReturn: number;
-  duration: number;
-}) {
+import { InvestmentInput } from '@/shared/models/investment-input.model';
+import { InvestmentResult } from '@/shared/models/investment-result.model';
+
+export function calculateInvestmentResults(
+  data: InvestmentInput,
+): InvestmentResult[] {
   const { initialInvestment, annualInvestment, expectedReturn, duration } =
     data;
   const annualData = [];

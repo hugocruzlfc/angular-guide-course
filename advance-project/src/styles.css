@@ -197,7 +197,8 @@ h2 {
 }
 
 button {
-  display: inline-block;
+  display: flex;
+  align-items: center;
   padding: 0.65rem 1.35rem;
   border-radius: 0.25rem;
   font-size: 1rem;
@@ -206,6 +207,7 @@ button {
   background-color: #691ebe;
   color: white;
   border: none;
+  justify-content: center;
 }
 
 button:hover {

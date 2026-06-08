@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-
+import { ButtonComponent } from '@/app/shared/ui/button/button.component';
+import { LucideLogOut } from '@lucide/angular';
 @Component({
   selector: 'app-header',
-  standalone: true, /// from Angular 19 onwards this not required, by default is true
+  standalone: true,
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
+  imports: [ButtonComponent, LucideLogOut],
 })
 export class HeaderComponent {}

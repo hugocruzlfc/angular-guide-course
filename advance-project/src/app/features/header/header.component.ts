@@ -6,5 +6,6 @@ import { LucideLogOut } from '@lucide/angular';
   standalone: true,
   templateUrl: './header.component.html',
   imports: [ButtonComponent, LucideLogOut],
+  styleUrl: './header.component.css',
 })
 export class HeaderComponent {}

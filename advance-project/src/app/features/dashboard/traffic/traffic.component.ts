@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './traffic.component.html',
+  styleUrl: './traffic.component.css',
 })
 export class TrafficComponent {
   trafficData = TRAFFIC_DATA;

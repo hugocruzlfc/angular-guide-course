@@ -8,5 +8,6 @@ import { LucideSendHorizontal } from '@lucide/angular';
   standalone: true,
   imports: [ButtonComponent, LucideSendHorizontal, ControlComponent],
   templateUrl: './new-ticket.component.html',
+  styleUrl: './new-ticket.component.css',
 })
 export class NewTicketComponent {}

@@ -1,4 +1,12 @@
-import { Component, input, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  Host,
+  HostBinding,
+  inject,
+  input,
+  ViewEncapsulation,
+} from '@angular/core';
 
 @Component({
   selector: 'app-control',
@@ -14,4 +22,11 @@ import { Component, input, ViewEncapsulation } from '@angular/core';
 export class ControlComponent {
   label = input.required<string>();
   inputId = input<string>();
+  // @HostBinding('class') className = 'control'; no se recomienda, solo sigue existiendo por compatibilidad con versiones anteriores, se recomienda usar host: { class: 'control' } en el decorador @Component
+
+  private el = inject(ElementRef);
+
+  onClick() {
+    console.log(this.el.nativeElement);
+  }
 }

@@ -1,8 +1,3 @@
-:host {
-  display: block;
-  margin-bottom: 1rem;
-}
-
 .control label {
   display: block;
   font-size: 0.8rem;
@@ -20,4 +15,8 @@
   font: inherit;
   font-size: 0.9rem;
   color: #4f4b53;
+}
+
+.control input {
+  margin-bottom: 1rem;
 }

@@ -1,4 +1,2 @@
-<div class="control">
-  <label>{{ label() }}</label>
-  <ng-content select="input, textarea" />
-</div>
+<label [for]="inputId()">{{ label() }}</label>
+<ng-content select="input, textarea"></ng-content>

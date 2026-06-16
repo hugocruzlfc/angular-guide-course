@@ -1,6 +1,13 @@
 import { ControlComponent } from '@/app/shared/control/control.component';
 import { ButtonComponent } from '@/app/shared/ui/button/button.component';
-import { Component, ElementRef, viewChild, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnInit,
+  viewChild,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucideSendHorizontal } from '@lucide/angular';
 
@@ -16,10 +23,21 @@ import { LucideSendHorizontal } from '@lucide/angular';
   templateUrl: './new-ticket.component.html',
   styleUrl: './new-ticket.component.css',
 })
-export class NewTicketComponent {
+export class NewTicketComponent implements AfterViewInit, OnInit {
   // @ViewChild('form') form?: ElementRef<HTMLFormElement>;  old version
 
-  private form = viewChild<ElementRef<HTMLFormElement>>('form');
+  private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
+
+  ngOnInit(): void {
+    console.log('NewTicketComponent ngOnInit');
+    console.log(this.form()?.nativeElement);
+    // con @ViewChild aqui seria undefined
+  }
+
+  ngAfterViewInit(): void {
+    console.log('NewTicketComponent ngAfterViewInit');
+    console.log(this.form()?.nativeElement);
+  }
 
   // form: HTMLFormElement could be pass via template reference
   onSubmit(titleInput: string, requestInput: string) {

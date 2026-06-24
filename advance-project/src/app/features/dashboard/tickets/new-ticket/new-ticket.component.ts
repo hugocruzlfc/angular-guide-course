@@ -5,11 +5,13 @@ import {
   Component,
   ElementRef,
   OnInit,
+  output,
   viewChild,
   ViewChild,
 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { LucideSendHorizontal } from '@lucide/angular';
+import { TicketInput } from '../ticket-input.moel';
 
 @Component({
   selector: 'app-new-ticket',
@@ -25,6 +27,7 @@ import { LucideSendHorizontal } from '@lucide/angular';
 })
 export class NewTicketComponent implements AfterViewInit, OnInit {
   // @ViewChild('form') form?: ElementRef<HTMLFormElement>;  old version
+  add = output<TicketInput>();
 
   private form = viewChild.required<ElementRef<HTMLFormElement>>('form');
 
@@ -41,8 +44,13 @@ export class NewTicketComponent implements AfterViewInit, OnInit {
 
   // form: HTMLFormElement could be pass via template reference
   onSubmit(titleInput: string, requestInput: string) {
-    console.log(titleInput);
-    console.log(requestInput);
+    // console.log(titleInput);
+    // console.log(requestInput);
+
+    this.add.emit({
+      title: titleInput,
+      text: requestInput,
+    });
 
     // this.form?.nativeElement.reset();
 

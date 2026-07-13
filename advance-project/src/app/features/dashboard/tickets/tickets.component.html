@@ -3,7 +3,7 @@
     @for (ticket of tickets; track ticket.id) {
       <li>
         <!-- <app-ticket /> - {{$first}} first es una de la variables disponibles en la sintaxis @for, devuelve true o false para el primer elemento del array, de la misma manera existe $last, $odd, $even, $count-->
-        <app-ticket [ticket]="ticket" />
+        <app-ticket [ticket]="ticket" (close)="onCloseTicket(ticket.id)" />
       </li>
     } @empty {
       <p>No tickets available.</p>

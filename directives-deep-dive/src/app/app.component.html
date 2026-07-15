@@ -4,7 +4,20 @@
   <hr />
 
   <app-auth />
-  @if (isAdmin()) {
+  <!-- @if (isAdmin()) {
     <p>Admin content!</p>
-  }
+  } -->
+
+  <!-- <p *appAuth="'admin'">Admin content!</p> de sta menera se simula una ng-template-->
+
+  <ng-template appAuth="admin">
+    <p class="protected-content admin">Admin content!</p>
+  </ng-template>
+
+  <p *appAuth="'user'" class="protected-content unauthenticated">
+    User content!
+  </p>
+  <p *appAuth="'guest'" class="protected-content authenticated">
+    Guest content!
+  </p>
 </main>

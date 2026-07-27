@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, NgZone, signal } from '@angular/core';
 
 import { InfoMessageComponent } from '../info-message/info-message.component';
 
@@ -10,11 +10,25 @@ import { InfoMessageComponent } from '../info-message/info-message.component';
   imports: [InfoMessageComponent],
 })
 export class CounterComponent {
+  //NgZone is a service offer a method we allow exclude of zone.js for specific code.
+  private zone = inject(NgZone);
   count = signal(0);
 
   get debugOutput() {
     console.log('[Counter] "debugOutput" binding re-evaluated.');
     return 'Counter Component Debug Output';
+  }
+
+  ngOnInit() {
+    setTimeout(() => {
+      this.count.set(0);
+    }, 4000);
+
+    this.zone.runOutsideAngular(() => {
+      setTimeout(() => {
+        console.log('Timer expired');
+      }, 4000);
+    });
   }
 
   onDecrement() {

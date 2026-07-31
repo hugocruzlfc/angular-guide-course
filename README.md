@@ -145,7 +145,7 @@ data-access/
 export const appProviders = [provideHttpClient(), provideRouter(routes)];
 ```
 
-### 🎨 7. Layout system (muy importante en apps reales)
+### 🎨 7. Layout system 
 
 ```bash
 layouts/
@@ -157,4 +157,8 @@ layouts/
 │   ├── auth.layout.ts
 │   └── auth-shell.component.ts
 
+```
+## Notes
+```text
+* Avoid using getter functions with heavy calculations in templates, likewise avoid interpolating functions with large or complex calculations.
 ```

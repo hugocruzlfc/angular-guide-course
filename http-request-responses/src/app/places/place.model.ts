@@ -8,3 +8,7 @@ export interface Place {
   lat: number;
   lon: number;
 }
+
+export interface GetPlacesResponse {
+  places: Place[];
+}

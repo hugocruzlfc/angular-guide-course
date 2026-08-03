@@ -2,7 +2,8 @@ import { inject, Injectable, signal } from '@angular/core';
 
 import { GetPlacesResponse, Place } from './place.model';
 import { HttpClient } from '@angular/common/http';
-import { catchError, map, tap, throwError } from 'rxjs';
+import { catchError, map, pipe, tap, throwError } from 'rxjs';
+import { ErrorService } from '../shared/error.service';
 
 const API_BASE_URL = 'http://localhost:3000';
 
@@ -11,6 +12,7 @@ const API_BASE_URL = 'http://localhost:3000';
 })
 export class PlacesService {
   private htpClient = inject(HttpClient);
+  private errorService = inject(ErrorService);
   private userPlaces = signal<Place[]>([]);
 
   loadedUserPlaces = this.userPlaces.asReadonly();
@@ -34,10 +36,26 @@ export class PlacesService {
   }
 
   addPlaceToUserPlaces(place: Place) {
-    this.userPlaces.update((prevPlaces) => [...prevPlaces, place]);
-    return this.htpClient.put(`${API_BASE_URL}/user-places`, {
-      placeId: place.id,
-    });
+    //this.userPlaces.update((prevPlaces) => [...prevPlaces, place]);
+    const prevPlaces = this.userPlaces();
+
+    if (prevPlaces.some((p) => p.id === place.id)) {
+      return;
+    }
+
+    this.userPlaces.set([...prevPlaces, place]);
+
+    return this.htpClient
+      .put(`${API_BASE_URL}/user-places`, {
+        placeId: place.id,
+      })
+      .pipe(
+        catchError((error) => {
+          this.userPlaces.set(prevPlaces);
+          this.errorService.showError('Failed to store selected place.');
+          return throwError(() => new Error('Failed to store selected place.'));
+        }),
+      );
   }
 
   removeUserPlace(place: Place) {}

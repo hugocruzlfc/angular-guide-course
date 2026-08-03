@@ -40,13 +40,13 @@ export class AvailablePlacesComponent implements OnInit {
 
   onSelectPlace(selectedPlace: Place) {
     const subscription = this.placesService
-      .addPlaceToUserPlaces(selectedPlace)
-      .subscribe({
+      ?.addPlaceToUserPlaces(selectedPlace)
+      ?.subscribe({
         next: (resData) => console.log(resData),
       });
 
     this.destroyRef.onDestroy(() => {
-      subscription.unsubscribe();
+      subscription?.unsubscribe();
     });
   }
 }

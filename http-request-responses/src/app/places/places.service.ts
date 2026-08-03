@@ -62,10 +62,8 @@ export class PlacesService {
     const prevPlaces = this.userPlaces();
 
     if (prevPlaces.some((p) => p.id === place.id)) {
-      return;
+      this.userPlaces.set(prevPlaces.filter((p) => p.id !== place.id));
     }
-
-    this.userPlaces.set(prevPlaces.filter((p) => p.id !== place.id));
 
     return this.htpClient
       .delete(`${API_BASE_URL}/user-places/${place.id}`)

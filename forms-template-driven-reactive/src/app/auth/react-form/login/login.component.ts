@@ -6,6 +6,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { of } from 'rxjs';
 
 function mustContainQuestionMark(control: AbstractControl) {
   if (control.value.includes('?')) {
@@ -15,6 +16,14 @@ function mustContainQuestionMark(control: AbstractControl) {
   return {
     doesNotContainQuestionMark: true,
   };
+}
+
+function emailIsUnique(control: AbstractControl) {
+  if (control.value !== 'admin@example.com') {
+    return of(null); // para imitar digamos un fetch a un backend
+  }
+
+  return of({ notUnique: true });
 }
 
 @Component({
@@ -35,6 +44,7 @@ export class ReactLoginComponent {
         Validators.min(6),
         mustContainQuestionMark,
       ],
+      asyncValidators: [emailIsUnique],
     }),
   });
 

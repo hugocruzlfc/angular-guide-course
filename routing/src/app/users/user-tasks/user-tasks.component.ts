@@ -53,6 +53,15 @@ export class UserTasksComponent {
   //     subscription.unsubscribe();
   //   });
   // }
+
+  //same way for get route data object
+  //private activatedRoute = inject(ActivatedRoute);
+  // ngOnInit() {
+  //   this.activatedRoute.params.subscribe({
+  //     next: (data) => {
+  //.        console.log('data', data);
+  //     },
+  //.  })
 }
 
 /// with fancy router resolver variant

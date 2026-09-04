@@ -4,7 +4,7 @@ import {
   resolveUserName,
   UserTasksComponent,
 } from './users/user-tasks/user-tasks.component';
-import { TasksComponent } from './tasks/tasks.component';
+import { resolveUserTasks, TasksComponent } from './tasks/tasks.component';
 import { NewTaskComponent } from './tasks/new-task/new-task.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -25,6 +25,10 @@ export const routes: Routes = [
       {
         path: 'tasks', //users/<userId>/tasks
         component: TasksComponent,
+        runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+        resolve: {
+          userTasks: resolveUserTasks,
+        },
       },
       {
         path: 'tasks/new', //users/<userId>/tasks/new

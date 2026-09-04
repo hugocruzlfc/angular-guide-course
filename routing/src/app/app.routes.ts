@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { NoTaskComponent } from './tasks/no-task/no-task.component';
 import {
+  resolveTitle,
   resolveUserName,
   UserTasksComponent,
 } from './users/user-tasks/user-tasks.component';
@@ -12,6 +13,7 @@ export const routes: Routes = [
   {
     path: '',
     component: NoTaskComponent,
+    title: 'No Task Page',
   },
   {
     path: 'users/:userId',
@@ -40,9 +42,11 @@ export const routes: Routes = [
       // parameter to be resolved before the component is loaded, like userName
       userName: resolveUserName,
     },
+    title: resolveTitle,
   },
   {
     path: '**',
     component: NotFoundComponent,
+    title: 'Not Found',
   },
 ];

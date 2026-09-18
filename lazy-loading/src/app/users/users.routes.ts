@@ -14,8 +14,9 @@ export const routes: Routes = [
   },
   {
     path: 'tasks', // <your-domain>/users/<uid>/tasks
-    loadComponent: () =>
-      import('../tasks/tasks.component').then((m) => m.TasksComponent),
+    // loadComponent: () =>.  not ne cessary because we are using loadChildren
+    //   import('../tasks/tasks.component').then((m) => m.TasksComponent),
+    component: NewTaskComponent,
     runGuardsAndResolvers: 'always',
     resolve: {
       userTasks: resolveUserTasks,
